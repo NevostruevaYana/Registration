@@ -96,7 +96,7 @@ public class EnterChatroomMessage extends AppCompatActivity {
 
                                                 @Override
                                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                                                    databaseError.getMessage();
                                                 }
                                             });
                                         }
@@ -105,12 +105,13 @@ public class EnterChatroomMessage extends AppCompatActivity {
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                                        databaseError.getMessage();
                                     }
                                 });
                             }
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
+                                databaseError.getMessage();
                             }
                         });
                     }

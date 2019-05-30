@@ -1,7 +1,6 @@
 package com.example.registration;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -11,13 +10,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.registration.Models.Chatroom;
 import com.example.registration.Models.User;
@@ -33,16 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.TreeMap;
 
 import java.io.IOException;
 
@@ -138,22 +124,22 @@ public class CreateChatroom extends AppCompatActivity {
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
+                                                    e.getMessage();
                                                 }
                                             });
-                                        } else {
-                                            Toast.makeText(CreateChatroom.this, "Name is already taken", Toast.LENGTH_SHORT).show();
                                         }
                                     }
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                                        databaseError.getMessage();
                                     }
                                 });
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
+                                databaseError.getMessage();
                             }
                         });
                     }
@@ -162,7 +148,7 @@ public class CreateChatroom extends AppCompatActivity {
         });
     }
 
-    Uri selectedPhoto = Uri.parse("https://firebasestorage.googleapis.com/v0/b/kvaksha-77242.appspot.com/o/image%2Flogo_blfstya.png?alt=media&token=12bcabf6-4553-4ef0-9628-af2c8fa7303c");
+    Uri selectedPhoto;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
