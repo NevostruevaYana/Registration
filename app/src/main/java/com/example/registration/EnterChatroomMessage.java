@@ -52,7 +52,7 @@ public class EnterChatroomMessage extends AppCompatActivity {
                         final String chatroomName = createChatroomName.getText().toString();
                         final String chatroomPassword = createPasswordChatroom.getText().toString();
 
-                        if(chatroomName.isEmpty() || chatroomName.contains("a") || chatroomPassword.isEmpty()) {
+                        if(chatroomName.isEmpty() || chatroomName.contains("@") || chatroomPassword.isEmpty()) {
                             if (chatroomName.isEmpty()) {
                                 createChatroomName.setError("Empty");
                             } else {
@@ -79,7 +79,7 @@ public class EnterChatroomMessage extends AppCompatActivity {
                                         if (dataSnapshot.getChildrenCount() == 0) {
                                             Toast.makeText(EnterChatroomMessage.this, "Such chatroom don't exist", Toast.LENGTH_SHORT).show();
                                         } else {
-                                            ref.child("/chatrooms/" + chatroomName).addValueEventListener(new ValueEventListener() {
+                                            ref.child("/chatrooms/" + chatroomName).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                     Chatroom chatroom = dataSnapshot.getValue(Chatroom.class);
@@ -88,6 +88,7 @@ public class EnterChatroomMessage extends AppCompatActivity {
                                                     if (password.equals(chatroomPassword)) {
                                                         ref.child("/chatrooms/" + chatroomName + "/users/" + currentUsername).setValue(currentUserUid);
                                                         IntentWithData(chatroomName);
+                                                        finish();
                                                     } else {
                                                         Toast.makeText(EnterChatroomMessage.this, "incorrect combination", Toast.LENGTH_SHORT).show();
                                                     }
@@ -118,7 +119,6 @@ public class EnterChatroomMessage extends AppCompatActivity {
                 });
             }
         });
-        finish();
     }
 
     private void IntentWithData(String chatroomName) {
