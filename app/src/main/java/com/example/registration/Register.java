@@ -65,14 +65,20 @@ public class Register extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        username = findViewById(R.id.username_edittext_register);
+        email = findViewById(R.id.email_edittext_register);
+        password = findViewById(R.id.password_eddittext_register);
+        imageCircle = findViewById(R.id.selectphoto_imagevies_circle);
+        photo = findViewById(R.id.selectphoto_button_register);
+
         findViewById(R.id.already_registartion).setOnClickListener(this);
         findViewById(R.id.register_button_register).setOnClickListener(this);
         findViewById(R.id.selectphoto_button_register).setOnClickListener(this);
-        dialog = new ProgressDialog(this);
 
+        dialog = new ProgressDialog(this);
     }
 
-    Uri selectedPhoto = Uri.parse("https://firebasestorage.googleapis.com/v0/b/kvaksha-77242.appspot.com/o/image%2Flogo_blfstya.png?alt=media&token=12bcabf6-4553-4ef0-9628-af2c8fa7303c");
+    Uri selectedPhoto = null;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Register.super.onActivityResult(requestCode, resultCode, data);
@@ -85,14 +91,15 @@ public class Register extends AppCompatActivity implements
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            imageCircle = findViewById(R.id.selectphoto_imagevies_circle);
-            photo = findViewById(R.id.selectphoto_button_register);
             imageCircle.setImageBitmap(bitmap);
             photo.setAlpha(0f);
         }
     }
 
     public void uploadImageToStorage(){
+        if (selectedPhoto == null){
+            return;
+        }
         filename = UUID.randomUUID().toString();
         imageRef = FirebaseStorage.getInstance().getReference("/image/" + filename);
         imageRef.putFile(selectedPhoto).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -120,9 +127,6 @@ public class Register extends AppCompatActivity implements
     private void saveUserInDatabase (String profileImageUrl) {
         uid = FirebaseAuth.getInstance().getUid();
         ref = FirebaseDatabase.getInstance().getReference();
-
-        email = findViewById(R.id.email_edittext_register);
-        username = findViewById(R.id.username_edittext_register);
         User user = new User(email.getText().toString(), uid, profileImageUrl, username.getText().toString());
         ref.child("/users/" + user.getUid()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -150,10 +154,6 @@ public class Register extends AppCompatActivity implements
     }
 
     public void register() {
-        username = findViewById(R.id.username_edittext_register);
-        email = findViewById(R.id.email_edittext_register);
-        password = findViewById(R.id.password_eddittext_register);
-
         usernameFound = username.getText().toString();
         emailFound = email.getText().toString();
         passwordFound = password.getText().toString();
@@ -213,7 +213,7 @@ public class Register extends AppCompatActivity implements
             case R.id.forgot_you_password:
                 Intent intent = new Intent(Register.this, ForgotPassword.class);
                 startActivity(intent);
-                default:
+            default:
         }
     }
 
@@ -231,5 +231,3 @@ public class Register extends AppCompatActivity implements
             username.setError("Empty");
     }
 }
-
-

@@ -4,8 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5AAED7"
+    android:background="@drawable/gradient1"
     tools:context=".Register">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="368dp"
+        app:layout_constraintEnd_toEndOf="@+id/password_eddittext_register"
+        app:layout_constraintStart_toStartOf="@+id/password_eddittext_register"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="284dp"
+        app:layout_constraintEnd_toEndOf="@+id/username_edittext_register"
+        app:layout_constraintStart_toStartOf="@+id/username_edittext_register"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintEnd_toEndOf="@+id/email_edittext_register"
+        app:layout_constraintStart_toStartOf="@+id/email_edittext_register"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/username_edittext_register"
@@ -26,9 +56,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:met_baseColor="#111"
-        app:met_errorColor="#8B0000"
+        app:met_errorColor="#E53935"
         app:met_floatingLabel="highlight"
-        app:met_primaryColor="@color/colorPrimaryDark"
+        app:met_primaryColor="#000000"
         tools:visibility="visible" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
@@ -50,9 +80,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:met_baseColor="#111"
-        app:met_errorColor="#8B0000"
+        app:met_errorColor="#E53935"
         app:met_floatingLabel="highlight"
-        app:met_primaryColor="@color/colorPrimaryDark"
+        app:met_primaryColor="#000000"
         tools:visibility="visible" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
@@ -75,10 +105,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:met_baseColor="#111"
         app:met_minCharacters="6"
-        app:met_errorColor="#8B0000"
+        app:met_errorColor="#E53935"
         app:met_floatingLabel="highlight"
         app:met_helperText="6 characters"
-        app:met_primaryColor="@color/colorPrimaryDark"
+        app:met_primaryColor="#000000"
         tools:visibility="visible" />
 
     <Button
@@ -125,6 +155,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         android:id="@+id/selectphoto_imagevies_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"

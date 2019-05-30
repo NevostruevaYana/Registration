@@ -96,9 +96,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/profile_fragment_image"
         app:layout_constraintEnd_toEndOf="@+id/profile_fragment_image"
         app:layout_constraintStart_toStartOf="@+id/profile_fragment_image"
-        app:layout_constraintTop_toTopOf="@+id/profile_fragment_image"
-        android:layout_alignLeft="@+id/profile_fragment_image"
-        android:layout_alignRight="@+id/profile_fragment_image" />
+        app:layout_constraintTop_toTopOf="@+id/profile_fragment_image" />
 
     <TextView
         android:id="@+id/profile_username"
@@ -113,9 +111,7 @@
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_fragment_image"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_fragment_image" />
 
     <TextView
         android:id="@+id/profile_email"

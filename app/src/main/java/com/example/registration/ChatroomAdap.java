@@ -56,13 +56,11 @@ public class ChatroomAdap extends RecyclerView.Adapter<ChatroomAdap.ViewHolder> 
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-
         TextView chatroomName;
         ImageView chatroom_image;
 
         ViewHolder(View itemView){
             super(itemView);
-
             chatroomName = itemView.findViewById(R.id.item_username);
             chatroom_image = itemView.findViewById(R.id.item_profile_image);
         }

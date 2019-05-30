@@ -51,7 +51,7 @@ public class PrivateChatsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chats, container, false);
         setHasOptionsMenu(true);
@@ -97,8 +97,6 @@ public class PrivateChatsFragment extends Fragment {
 
             }
         });
-
-
         return view;
     }
 
@@ -110,7 +108,6 @@ public class PrivateChatsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mUser.clear();
-
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
 

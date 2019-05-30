@@ -3,9 +3,13 @@
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/this_user_message_background"
+
     android:padding="5dp"
-    android:layout_marginBottom="5dp">
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/background_right"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp">
 
     <TextView
         android:layout_width="wrap_content"

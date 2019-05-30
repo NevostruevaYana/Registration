@@ -6,17 +6,17 @@ import android.widget.TextView;
 
 import com.example.registration.Models.Message;
 
-public class MessageViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder{
+class MessageViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder{
     View view;
-    Context context;
+    private Context context;
 
-    public MessageViewHolder(View itemView){
+    MessageViewHolder(View itemView){
         super(itemView);
         view = itemView;
         context = itemView.getContext();
     }
 
-    public void setMessage(Message message){
+    void setMessage(Message message){
         TextView nameField = view.findViewById(R.id.message_user);
         TextView textField = view.findViewById(R.id.message_text);
         TextView timeField = view.findViewById(R.id.message_time);

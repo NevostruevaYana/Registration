@@ -1,14 +1,9 @@
 package com.example.registration.Models;
 
-import com.example.registration.Models.Message;
-
 public class Chatroom {
 
-    String chatroomName;
-    String pw;
-    Message message;
-
-    String chatroomImageUrl;
+    private String chatroomName, pw, chatroomImageUrl;
+    private Message message;
 
     Chatroom(){}
     public Chatroom(String chatroomName){

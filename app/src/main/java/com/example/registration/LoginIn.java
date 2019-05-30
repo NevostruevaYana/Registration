@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginIn extends AppCompatActivity implements View.OnClickListener{
-
     FirebaseAuth mAuth;
     FirebaseUser firebaseUser;
 
@@ -38,6 +37,9 @@ public class LoginIn extends AppCompatActivity implements View.OnClickListener{
         findViewById(R.id.login_registration).setOnClickListener(this);
         findViewById(R.id.forgot_you_password).setOnClickListener(this);
 
+        email = findViewById(R.id.email_edittext_login);
+        password = findViewById(R.id.password_edittext_login);
+
         dialog = new ProgressDialog(this);
     }
 
@@ -54,9 +56,6 @@ public class LoginIn extends AppCompatActivity implements View.OnClickListener{
     }
 
     public void signIn() {
-        email = findViewById(R.id.email_edittext_login);
-        password = findViewById(R.id.password_edittext_login);
-
         emailFound = email.getText().toString();
         passwordFound = password.getText().toString();
 

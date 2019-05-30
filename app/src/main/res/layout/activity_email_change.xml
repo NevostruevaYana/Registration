@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmailChange">
+    tools:context=".EmailChange"
+    android:background="@drawable/gradient1">
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="78dp"
+        app:layout_constraintEnd_toEndOf="@+id/new_email"
+        app:layout_constraintStart_toStartOf="@+id/new_email"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/new_email"
@@ -22,24 +33,22 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:met_baseColor="#111"
-        app:met_errorColor="#8B0000"
+        app:met_baseColor="#000000"
+        app:met_errorColor="#E53935"
         app:met_floatingLabel="normal"
-        app:met_primaryColor="@color/colorPrimaryDark" />
+        app:met_primaryColor="#000000" />
 
     <Button
         android:id="@+id/change_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/rounded"
         android:text="@string/change_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/new_email"
+        app:layout_constraintStart_toStartOf="@+id/new_email"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

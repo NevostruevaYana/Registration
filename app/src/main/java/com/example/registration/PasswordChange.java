@@ -24,6 +24,7 @@ public class PasswordChange extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_change);
+        getSupportActionBar().setTitle("Password change");
         dialog = new ProgressDialog(this);
         newPassword = findViewById(R.id.new_password);
         changePassword = findViewById(R.id.change_password);

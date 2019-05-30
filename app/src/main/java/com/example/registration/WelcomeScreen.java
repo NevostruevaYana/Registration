@@ -11,7 +11,7 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_screen);
-        int SPLASH_TIME_OUT = 4000;
+        int SPLASH_TIME_OUT = 3000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -32,7 +32,7 @@ public class MainChatFragment extends Fragment {
     String currentUID;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup vg, Bundle state) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup vg, Bundle state) {
         return inflater.inflate(R.layout.fragment_chatroom, vg, false);
     }
 
@@ -108,7 +108,7 @@ public class MainChatFragment extends Fragment {
                     }
 
                     @Override
-                    public MessageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                         if(viewType == 0) {
                             View view = LayoutInflater.from(parent.getContext())
                                     .inflate(R.layout.message, parent, false);
@@ -139,7 +139,7 @@ public class MainChatFragment extends Fragment {
                 Message userMessage = new Message(
                         userMessageInput.getText().toString(),
                         currentUser,
-                        photoURL,
+                        photoURL.toString(),
                         currentUID
                 );
 

@@ -4,12 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/gradient1">
 
-    <EditText
-        android:id="@+id/chatroom_name"
+    <ImageView
+        android:id="@+id/imageView11"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="162dp"
+        app:layout_constraintEnd_toEndOf="@+id/password_chatroom"
+        app:layout_constraintStart_toStartOf="@+id/password_chatroom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="78dp"
+        app:layout_constraintEnd_toEndOf="@+id/chatroom_name"
+        app:layout_constraintStart_toStartOf="@+id/chatroom_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/chatroom_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="64dp"
@@ -22,31 +42,41 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:met_baseColor="#000000"
+        app:met_errorColor="#E53935"
+        app:met_floatingLabel="normal"
+        app:met_primaryColor="#000000"
+        android:paddingStart="16dp" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/password_chatroom"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
         android:background="@drawable/rounded"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
+        android:paddingStart="16dp"
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="@+id/chatroom_name"
         app:layout_constraintStart_toStartOf="@+id/chatroom_name"
-        app:layout_constraintTop_toBottomOf="@+id/chatroom_name" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:met_baseColor="#000000"
+        app:met_errorColor="#E53935"
+        app:met_floatingLabel="normal"
+        app:met_primaryColor="#000000" />
 
     <Button
         android:id="@+id/enter_button_cm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="232dp"
         android:background="@drawable/rounded"
         android:text="Enter"
         app:layout_constraintEnd_toEndOf="@+id/chatroom_name"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/chatroom_name"
-        app:layout_constraintTop_toBottomOf="@+id/chatroom_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

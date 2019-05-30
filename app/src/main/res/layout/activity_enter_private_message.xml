@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/gradient1">
 
-    <EditText
-        android:id="@+id/pm_userna"
+    <ImageView
+        android:id="@+id/imageView12"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="78dp"
+        app:layout_constraintEnd_toEndOf="@+id/pm_userna"
+        app:layout_constraintStart_toStartOf="@+id/pm_userna"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/pm_userna"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="64dp"
@@ -22,17 +31,22 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:met_baseColor="#000000"
+        app:met_errorColor="#E53935"
+        app:met_floatingLabel="normal"
+        app:met_primaryColor="#000000"
+        android:paddingStart="16dp" />
 
     <Button
         android:id="@+id/enter_"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Enter"
+        android:layout_marginTop="148dp"
         android:background="@drawable/rounded"
+        android:text="@string/enter"
         app:layout_constraintEnd_toEndOf="@+id/pm_userna"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/pm_userna"
-        app:layout_constraintTop_toBottomOf="@+id/pm_userna" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

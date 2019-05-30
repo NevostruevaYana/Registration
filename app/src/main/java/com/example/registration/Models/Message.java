@@ -8,13 +8,9 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Message implements Serializable {
-    private String text;
-    private String user;
-    private String time;
-    private Uri image;
-    private String suid;
+    private String text, user, time, suid, image ;
 
-    public Message (String text, String user, Uri image, String suid) {
+    public Message (String text, String user, String image, String suid) {
         this.text = text;
         this.user = user;
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm",
@@ -38,8 +34,8 @@ public class Message implements Serializable {
     public String getTime() {return time;}
     public void setTime (String time) {this.time = time;}
 
-    public Uri getImage() {return image;}
-    public void setImage (Uri image) {this.image = image;}
+    public String getImage() {return image;}
+    public void setImage (String image) {this.image = image;}
 
     public String getSender() {return suid;}
     public void setSender (String suid) {this.suid = suid;}

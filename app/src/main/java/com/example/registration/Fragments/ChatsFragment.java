@@ -16,11 +16,8 @@ import android.view.ViewGroup;
 import com.example.registration.ChatroomAdap;
 import com.example.registration.CreateChatroom;
 import com.example.registration.EnterChatroomMessage;
-import com.example.registration.EnterPrivateMessage;
 import com.example.registration.Models.Chatroom;
 import com.example.registration.R;
-import com.example.registration.Models.User;
-import com.example.registration.UserAdap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,7 +48,7 @@ public class ChatsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chats, container, false);
         setHasOptionsMenu(true);
@@ -77,9 +74,9 @@ public class ChatsFragment extends Fragment {
                                 readChatroom();
                             }
                         }
-                        }
                     }
                 }
+            }
 
 
             @Override

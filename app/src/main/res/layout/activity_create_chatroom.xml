@@ -4,12 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/gradient1">
 
-    <EditText
-        android:id="@+id/create_chatroom_name"
+    <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="298dp"
+        app:layout_constraintEnd_toEndOf="@+id/create_chatroom_name"
+        app:layout_constraintStart_toStartOf="@+id/create_chatroom_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="214dp"
+        app:layout_constraintEnd_toEndOf="@+id/create_chatroom_name"
+        app:layout_constraintStart_toStartOf="@+id/create_chatroom_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/white" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/create_chatroom_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="200dp"
@@ -22,13 +42,17 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:met_baseColor="#000000"
+        app:met_errorColor="#E53935"
+        app:met_floatingLabel="normal"
+        app:met_primaryColor="#000000"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/create_password_chatroom"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="284dp"
         android:background="@drawable/rounded"
         android:ems="10"
         android:hint="Password"
@@ -36,19 +60,23 @@
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="@+id/create_chatroom_name"
         app:layout_constraintStart_toStartOf="@+id/create_chatroom_name"
-        app:layout_constraintTop_toBottomOf="@+id/create_chatroom_name" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:met_baseColor="#000000"
+        app:met_errorColor="#E53935"
+        app:met_floatingLabel="normal"
+        app:met_primaryColor="#000000" />
 
     <Button
         android:id="@+id/create_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="368dp"
         android:background="@drawable/rounded"
         android:text="Create"
         app:layout_constraintEnd_toEndOf="@+id/create_chatroom_name"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/create_chatroom_name"
-        app:layout_constraintTop_toBottomOf="@+id/create_chatroom_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/selectphoto_button_cc"

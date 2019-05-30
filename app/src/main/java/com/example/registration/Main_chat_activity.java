@@ -29,9 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Main_chat_activity extends AppCompatActivity {
     String chatroomPath;
     String currentUser;
-    Uri photoURL;
+    String photoURL;
     String currentUID;
-    FirebaseRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +39,7 @@ public class Main_chat_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatroom);
         getSupportActionBar().setTitle(arguments.get("chatroomName").toString());
-        //TODO: get the username of the other user after the UID's will be stored in chatrooms
-        //TODO: set slider here
-
-
-
-
         chatroomPath = "/chatrooms/" + arguments.get("chatroomName").toString() + "/messages";
-
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase.getInstance().getReference().child("/users/")
                 .addValueEventListener(new ValueEventListener() {
@@ -57,6 +49,7 @@ public class Main_chat_activity extends AppCompatActivity {
                             if(child.getKey().equals(uid)){
                                 currentUser = child.child("/username/").getValue().toString();
                                 currentUID = uid;
+                                photoURL = child.child("/profileImageUrl/").getValue().toString();
                             }
                         }
                     }
@@ -66,18 +59,14 @@ public class Main_chat_activity extends AppCompatActivity {
                     }
                 });
 
-        photoURL = FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
 
         Log.d("ChatActivity", "getting the chatroom path, current user and URL");
-
 
         final RecyclerView listOfMessages = findViewById(R.id.list_of_messages);
         listOfMessages.setHasFixedSize(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         listOfMessages.setLayoutManager(layoutManager);
-
         Query query = FirebaseDatabase.getInstance().getReference().child(chatroomPath).limitToLast(50);
-
         FirebaseRecyclerOptions<Message> options =
                 new FirebaseRecyclerOptions.Builder<Message>()
                         .setQuery(query, Message.class)
@@ -90,7 +79,6 @@ public class Main_chat_activity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull Message model) {
                         //setting the view of a single message
                         holder.setMessage(model);
-                        Log.d("chatActivity", "catched a new message, yay");
                     }
 
                     @Override
@@ -103,14 +91,13 @@ public class Main_chat_activity extends AppCompatActivity {
                         } catch (NullPointerException e) {
                             System.out.println(currentUID);
                             System.out.println(getItem(position).getSender());
-
                             e.printStackTrace();
                         }
                         return 0;
                     }
 
                     @Override
-                    public MessageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                         if(viewType == 0) {
                             View view = LayoutInflater.from(parent.getContext())
                                     .inflate(R.layout.message, parent, false);
@@ -146,14 +133,13 @@ public class Main_chat_activity extends AppCompatActivity {
                         photoURL,
                         currentUID
                 );
-
                 FirebaseDatabase.getInstance().getReference()
                         .child(chatroomPath).push().setValue(userMessage);
 
                 userMessageInput.getText().clear();
 
                 if(adapter.getItemCount() >= 1){
-                    listOfMessages.smoothScrollToPosition(adapter.getItemCount() - 1);
+                    listOfMessages.smoothScrollToPosition(adapter.getItemCount());
                 }
             }
         };

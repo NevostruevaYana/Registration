@@ -27,6 +27,7 @@ public class EmailChange extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_change);
+        getSupportActionBar().setTitle("Email change");
         dialog = new ProgressDialog(this);
         ref = FirebaseDatabase.getInstance().getReference();
         newEmail = findViewById(R.id.new_email);
